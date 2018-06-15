@@ -27,9 +27,9 @@ requirements:
 
 test:
   requires:
-    - pytest
+    - pytest>=2.8
   commands:
-    - pytest --pyargs {{ name }}
+    - python -m pytest --pyargs {{ name }}
 
 about:
   home: https://pypi.org/project/{{ name }}/
