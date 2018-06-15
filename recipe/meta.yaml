@@ -1,5 +1,6 @@
 {% set name = "ligotimegps" %}
-{% set version = "1.2.1" %}
+{% set version = "1.2.3" %}
+{% set sha256 = "79ee18df7f6806d522f68d278b0ac426094626a479af58c178f32d2b319919ba" %}
 
 package:
   name: {{ name }}
@@ -8,8 +9,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b3a53a7ec5728e8510f8a1a48e833c6ab9dbf7ee3b15aeef03790917de6241f7
-
+  sha256: {{ sha256 }}
 
 build:
   number: 0
@@ -27,9 +27,9 @@ requirements:
 
 test:
   requires:
-    - pytest
+    - pytest>=2.8
   commands:
-    - pytest --pyargs {{ name }}
+    - python -m pytest --pyargs {{ name }}
 
 about:
   home: https://pypi.org/project/{{ name }}/
@@ -37,6 +37,19 @@ about:
   license_file: LICENSE
   license_family: GPL
   summary: A pure-python version of lal.LIGOTimeGPS
+  description: |
+    This module provides a pure-python version of the `LIGOTimeGPS` class,
+    used to represent GPS times (number of seconds elapsed since GPS epoch)
+    with nanoseconds precision.
+
+    This module is primarily for use as a drop-in replacement for the
+    'official' `LIGOTimeGPS` class (provided by `lal`) for use on those
+    environments where LAL is not available (e.g. Windows), or when
+    building LAL is unnecessary for the application (e.g. testing).
+
+    The code provided here is much slower than the C-implementation
+    provided by LAL, so if you really care about performance,
+    don't use this module.
 
 extra:
   recipe-maintainers:
