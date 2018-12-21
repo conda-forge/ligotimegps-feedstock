@@ -18,14 +18,16 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.4
     - setuptools
     - pip
   run:
-    - python
+    - python >=3.4
     - six
 
 test:
+  imports:
+    - ligotimegps
   requires:
     - pytest>=2.8
   commands:
