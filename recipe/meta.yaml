@@ -1,6 +1,6 @@
 {% set name = "ligotimegps" %}
-{% set version = "1.2.3" %}
-{% set sha256 = "79ee18df7f6806d522f68d278b0ac426094626a479af58c178f32d2b319919ba" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "a98275b5aa4490eadc2669f9a2de108f4634ae3724e878fee562b84ccf529e83" %}
 
 package:
   name: {{ name }}
@@ -18,14 +18,16 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.4
     - setuptools
     - pip
   run:
-    - python
+    - python >=3.4
     - six
 
 test:
+  imports:
+    - ligotimegps
   requires:
     - pytest>=2.8
   commands:
