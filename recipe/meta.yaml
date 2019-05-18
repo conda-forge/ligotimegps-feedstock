@@ -1,6 +1,6 @@
 {% set name = "ligotimegps" %}
-{% set version = "2.0.0" %}
-{% set sha256 = "a98275b5aa4490eadc2669f9a2de108f4634ae3724e878fee562b84ccf529e83" %}
+{% set version = "2.0.1" %}
+{% set sha256 = "88626c02ad9a464d1242a1147b40074792f424bafa2ab013eee629c7d1b6469c" %}
 
 package:
   name: {{ name }}
