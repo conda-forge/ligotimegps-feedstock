@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ligotimegps-fee
 
 Home: https://pypi.org/project/ligotimegps/
 
-Package license: GPLv3
+Package license: GPL-3.0-or-later
 
 Summary: A pure-python version of lal.LIGOTimeGPS
 
