@@ -36,9 +36,8 @@ test:
 
 about:
   home: https://pypi.org/project/{{ name }}/
-  license: GPLv3
+  license: GPL-3.0-or-later
   license_file: LICENSE
-  license_family: GPL
   summary: A pure-python version of lal.LIGOTimeGPS
   description: |
     This module provides a pure-python version of the `LIGOTimeGPS` class,
