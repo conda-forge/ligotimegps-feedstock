@@ -9,6 +9,10 @@ Package license: GPL-3.0-or-later
 
 Summary: A pure-python version of lal.LIGOTimeGPS
 
+Development: https://gitlab.com/gwpy/ligotimegps.git
+
+Documentation: https://ligotimegps.readthedocs.io/
+
 This module provides a pure-python version of the `LIGOTimeGPS` class,
 used to represent GPS times (number of seconds elapsed since GPS epoch)
 with nanoseconds precision.
