@@ -1,41 +1,46 @@
 {% set name = "ligotimegps" %}
 {% set version = "2.1.0" %}
-{% set sha256 = "d948ffc4d58472b303478a983ec56d2e6a7f35e54cbb351ca6f1292e68398cb2" %}
+
+{% set python_min = "3.11" %}
 
 package:
-  name: {{ name }}
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.org/packages/source/l/ligotimegps/ligotimegps-{{ version }}.tar.gz
+  sha256: d948ffc4d58472b303478a983ec56d2e6a7f35e54cbb351ca6f1292e68398cb2
 
 build:
-  number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python {{ python_min }}
-    - setuptools
     - pip
+    - python {{ python_min }}
+    - setuptools >=61.0
+    - setuptools-scm >=6.2
   run:
     - python >={{ python_min }}
-    - six
 
 test:
-  imports:
-    - ligotimegps
   requires:
-    - pytest>=2.8
+    - pip
+    - pytest >=8.4.1
     - python {{ python_min }}
   commands:
-    - python -m pytest --pyargs {{ name }}
+    # check requirements
+    - python -m pip check
+    - python -m pip show ligotimegps
+    # run tests
+    - python -m pytest --pyargs -ra -v ligotimegps.tests
 
 about:
-  home: https://pypi.org/project/{{ name }}/
+  home: https://pypi.org/project/ligotimegps/
+  dev_url: https://gitlab.com/gwpy/ligotimegps.git
+  doc_url: https://ligotimegps.readthedocs.io/
   license: GPL-3.0-or-later
   license_file: LICENSE
   summary: A pure-python version of lal.LIGOTimeGPS
